@@ -1,0 +1,11 @@
+{
+  "host": "127.0.0.1",
+  "port": 7777,
+  "system_center_url": "http://localhost:6666",
+  "mongo_uri": "mongodb://localhost:27017/",
+  "db_name": "Server",
+  "enc_shares_collection": "enc_shares",
+  "status": "active",
+  "storage_path": "CloudServer/keys",
+  "id": "CBE2CBF6CAC96BC945AE99CC1669745A"
+}
