@@ -24,4 +24,4 @@ def clear_keys_subdirs(root_dir: str):
                         print(f"删除 {item_path} 失败: {e}")
 
 # 示例用法
-clear_keys_subdirs(r"D:\Data\PythonProjects\GraduationDesign\Beta0.7")
+clear_keys_subdirs(r"D:\Data\PythonProjects\GraduationDesign\Beta0.8")

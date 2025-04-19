@@ -1,0 +1,222 @@
+/* 上传区域样式 */
+.upload-container {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    margin-bottom: 2rem;
+}
+
+.upload-area {
+    margin-bottom: 2rem;
+}
+
+.upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.upload-box.dragover {
+    border-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.upload-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.upload-box i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.upload-text {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.upload-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    transition: all 0.3s;
+}
+
+.upload-button:hover {
+    background: #224abe;
+    transform: translateY(-2px);
+}
+
+/* 文件列表样式 */
+.file-list {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    margin-top: 2rem;
+}
+
+.file-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.list-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.file-item {
+    margin-bottom: 0.5rem;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.file-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+}
+
+.file-item-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.file-info-section {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+
+.file-details {
+    overflow: hidden;
+}
+
+.file-name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-status {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.progress-section {
+    flex-grow: 1;
+}
+
+.progress {
+    height: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+.progress-bar.bg-danger {
+    background-color: #dc3545;
+}
+
+.action-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.action-section button {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.action-section button:hover {
+    transform: scale(1.1);
+}
+
+.cancel-btn {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.cancel-btn:hover {
+    color: #fff;
+    background-color: #dc3545;
+}
+
+.retry-btn {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.retry-btn:hover {
+    color: #fff;
+    background-color: #0d6efd;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .file-item-content {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .file-info-section {
+        min-width: auto;
+    }
+    
+    .action-section {
+        justify-content: flex-end;
+    }
+}
+
+/* 动画效果 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.file-item {
+    animation: slideIn 0.3s ease;
+}
