@@ -1,13 +1,11 @@
-"""
-Description:
-Author: DSTBP
-Date: 2025-04-08 21:06:13
-LastEditTime: 2025-04-09 08:28:38
-LastEditors: DSTBP
-"""
+# -*- coding: utf-8 -*-
+# @Time    : 2025/04/19 12:33
+# @Author  : DSTBP
+# @File    : SystemCenter/system_main.py
+# @Description : 系统中心主函数
 from loguru import logger
-from business.core.systemcenter import SystemCenter
-from business.model.config import SystemCenterConfig
+from business.core import SystemCenter
+from business.config import SystemCenterConfig
 
 if __name__ == "__main__":
     # 启动可信中心服务（8085端口）

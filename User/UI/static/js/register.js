@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 设置默认系统中心地址
     if (!localStorage.getItem('systemCenterAddress')) {
-        localStorage.setItem('systemCenterAddress', 'http://10.24.37.5:8085');
+        localStorage.setItem('systemCenterAddress', 'http://10.24.37.3:8085');
     }
 
     const registerForm = document.getElementById('register');

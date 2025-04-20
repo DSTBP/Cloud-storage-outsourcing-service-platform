@@ -151,9 +151,10 @@ def upload_file(system_center_url: str, system_params: dict, file_path: str, use
             file_key=key,
             upload_user=username
         )
+        print(f'upload key: {key}')
         resp = FileUploadResponse(**net.extract_response_data(net.post("file/upload", req.__dict__)))
         
-        update_upload_progress(100, "上传完成")
+        update_upload_progress(100, "上传成功")
         return resp.file_uuid
     except Exception as e:
         update_upload_progress(0, f"上传失败: {str(e)}")
@@ -208,7 +209,7 @@ def download_file(system_center_url: str, system_params: dict, username: str, fi
         if cryptoservice.digest_message(file_bytes) == file_info.file_hash:
             update_download_progress(90, "正在保存文件...")
             storageservice.save_file(file_bytes, file_dir, file_info.file_name)
-            update_download_progress(100, "下载完成")
+            update_download_progress(100, "下载成功")
 
     except Exception as e:
         update_download_progress(0, f"上传失败: {str(e)}")
@@ -258,10 +259,8 @@ def __process_shares(system_params, curve, base_point, commits: dict, shares_dat
 
     recovery_points = []
     for info in shares_data:
-        decrypted_share = tc.hex_to_int(
-            cryptoservice.decrypt_data(info['enc_share'], private_key, algorithm="ecc"))  # ECC 解密加密份额
-        if __verify_share(system_params, base_point, tc.hex_to_int(info['server_id']), commit_points,
-                               decrypted_share):  # TODO int(info['server_id'], 16)
+        decrypted_share = tc.hex_to_int(cryptoservice.decrypt_data(info['enc_share'], private_key, algorithm="ecc"))  # ECC 解密加密份额
+        if __verify_share(system_params, base_point, tc.hex_to_int(info['server_id']), commit_points, decrypted_share):  # TODO int(info['server_id'], 16)
             recovery_points.append((int(info['server_id'], 16), decrypted_share))
         else:
             return None

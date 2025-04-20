@@ -1,18 +1,16 @@
-'''
-Description: 
-Author: DSTBP
-Date: 2025-04-12 17:43:12
-LastEditTime: 2025-04-14 19:43:42
-LastEditors: DSTBP
-'''
-import json
+# -*- coding: utf-8 -*-
+# @Time    : 2025/04/19 12:33
+# @Author  : DSTBP
+# @File    : CloudServer/server_main.py
+# @Description : 云服务器集群主函数
 import os
+import json
 from loguru import logger
+from business.core import CloudServer
+from business.config import CloudServerConfig
 
-from CloudServer.core.cloudserver import CloudServer
-from CloudServer.model.config import CloudServerConfig
 
-def list_subdirectories(base_dir = r"D:\Data\PythonProjects\GraduationDesign\Gamma0.4\CloudServer\CloudServer\keys"):
+def list_subdirectories(base_dir = r"D:\Data\PythonProjects\GraduationDesign\Gamma0.4\CloudServer\business\keys"):
     result = []
     # 遍历 base_dir 下的所有子目录
     for subdir in os.listdir(base_dir):
@@ -30,6 +28,7 @@ def list_subdirectories(base_dir = r"D:\Data\PythonProjects\GraduationDesign\Gam
             except Exception as e:
                 print(f"读取 {info_path} 失败: {e}")
     return result
+
 
 if __name__ == "__main__":
     ids = list_subdirectories()

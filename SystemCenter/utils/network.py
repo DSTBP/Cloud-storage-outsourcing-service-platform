@@ -5,14 +5,49 @@
 # @Description : 通信处理工具
 import requests
 from typing import Optional, Dict, Any, List, Tuple, Union
-from error.network_error_codes import ERROR_MESSAGES, SUCCESS_CODE, RESPONSE_FORMAT
 from utils.converter import TypeConverter as tc
 from OpenSSL import crypto
 import urllib3
-import logging
 import os
 
-logger = logging.getLogger(__name__)
+# 错误码定义
+ERROR_MESSAGES = {
+    # 100: "请求必须为JSON格式",
+    101: "无效的JSON格式",
+    102: "上传请求缺少必要参数",
+    103: "云服务器 ID 重复，超过最大尝试次数，服务器注册失败",
+    104: "用户 ID 重复，超过最大尝试次数，用户注册失败",
+    105: "网络连接超时",
+    106: "服务器响应错误",
+    107: "请求过于频繁",
+    108: "无权限删除文件",
+    109: "部分服务器删除份额失败",
+    112: "SM2 解签失败",
+    114: "文件已存在，请勿重复上传",
+    115: "用户名已存在",
+    116: "用户名不存在",
+    117: "资源不存在",
+    118: "系统内部未知错误",
+    119: '文件不存在',
+    120: '未指定 file uuid',
+    123: "权限不足",
+    124: "请求频率超限",
+    125: "服务不可用",
+    126: '服务器处理签密请求发生未知异常',
+    127: '处理下载请求发生未知异常',
+    128: '密码错误',
+    200: "无错误"
+}
+
+# 成功状态码
+SUCCESS_CODE = 200
+
+# 标准响应格式
+RESPONSE_FORMAT = {
+    'data': None,
+    'status': 'success',
+    'error_code': SUCCESS_CODE
+}
 
 class NetworkError(Exception):
     """网络通信错误基类"""
@@ -117,7 +152,6 @@ class NetworkAPI:
         except requests.exceptions.Timeout:
             return self.create_standard_response(error_code=105)
         except requests.exceptions.SSLError:
-            logger.warning(f"SSL证书验证失败，尝试禁用验证: {url}")
             self.session.verify = False
             try:
                 response = self.session.request(
@@ -316,8 +350,6 @@ class NetworkAPI:
             f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k))
         with open(cert_file_path, "wb") as f:
             f.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert))
-
-        logger.info(f"SSL证书已生成: {key_file_path}, {cert_file_path}")
 
     def __enter__(self):
         return self

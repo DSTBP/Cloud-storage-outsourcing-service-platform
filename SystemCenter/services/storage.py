@@ -86,44 +86,6 @@ class StorageService:
             logger.error(f"密钥加载失败: {str(e)}")
             return None
 
-    def save_info_json(self, data: Dict, overwrite: bool = False) -> bool:
-        """
-        保存信息到JSON文件
-        :param data: 数据字典
-        :param overwrite: 是否覆盖已有文件
-        """
-        info_path = self.base_path / 'info.json'
-        if info_path.exists() and not overwrite:
-            logger.warning(f"信息文件已存在: {info_path}")
-            return False
-
-        try:
-            with open(info_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
-            return True
-        except IOError as e:
-            logger.error(f"密钥保存失败: {str(e)}")
-            return False
-
-    def load_info_json(self) -> Optional[Dict]:
-        """
-        从 JSON 文件中加载信息
-        :return: 加载成功返回字典，否则返回 None
-        """
-        info_path = self.base_path / 'info.json'
-        if not info_path.exists():
-            logger.warning(f"信息文件不存在: {info_path}")
-            return None
-
-        try:
-            with open(info_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            logger.info("信息文件加载成功")
-            return data
-        except (IOError, json.JSONDecodeError) as e:
-            logger.error(f"信息加载失败: {str(e)}")
-            return None
-
     def _get_expired_files(self, max_age_days: int) -> List[Path]:
         """
         获取过期的文件列表
@@ -186,35 +148,3 @@ class StorageService:
         except Exception as e:
             logger.error(f"清理过期数据时发生错误: {str(e)}")
             raise
-
-    @staticmethod
-    def save_file(file_bytes: bytes, save_dir: str, file_name: str) -> str:
-        """
-        将字节内容保存为文件到指定目录
-
-        :param file_bytes: 文件的字节内容
-        :param save_dir: 要保存到的目录路径
-        :param file_name: 文件名（包含扩展名）
-        """
-        # 如果目录不存在，自动创建
-        os.makedirs(save_dir, exist_ok=True)
-
-        # 拼接完整路径
-        file_path = os.path.join(save_dir, file_name)
-
-        # 写入文件
-        with open(file_path, 'wb') as f:
-            f.write(file_bytes)
-
-        return file_path
-
-    @staticmethod
-    def get_file(file_path: str) -> bytes:
-        """
-        传入一个文件路径，返回文件字节
-        :param file_path: 文件路径
-        :return: 文件信息字典
-        """
-        with open(file_path, 'rb') as f:
-            file_bytes = f.read()
-        return file_bytes

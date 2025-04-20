@@ -225,6 +225,114 @@ body {
     font-weight: 600;
 }
 
+/* 文件列表容器样式 */
+.file-list-container {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.file-list-container .table {
+    margin-bottom: 0;
+}
+
+.file-list-container th {
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.file-list-container td {
+    vertical-align: middle;
+}
+
+.file-list-container .text-truncate {
+    max-width: 200px;
+    display: inline-block;
+}
+
+.file-list-container i {
+    font-size: 1.2rem;
+}
+
+.file-list-container .delete-btn {
+    transition: all 0.3s ease;
+}
+
+.file-list-container .delete-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Toast 容器样式 */
+.toast-container {
+    z-index: 1050;
+}
+
+.toast {
+    opacity: 1;
+}
+
+/* 空状态样式 */
+.file-list-container .empty-state {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.file-list-container .empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+/* 文件哈希值样式 */
+.hash-container {
+    position: relative;
+    max-width: 150px;
+    overflow: hidden;
+    padding: 4px 0;
+}
+
+.hash-text {
+    font-family: monospace;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 2px 6px;
+    background-color: var(--light-color);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--dark-color);
+    transition: all 0.3s ease;
+}
+
+.hash-text:hover {
+    background-color: var(--sidebar-hover);
+    color: var(--primary-color);
+}
+
+/* 哈希值滑动动画 */
+.hash-container:hover .hash-text {
+    animation: slideText 8s linear infinite;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(0);
+    }
+    90% {
+        transform: translateX(calc(-100% + 150px));
+    }
+    100% {
+        transform: translateX(calc(-100% + 150px));
+    }
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .sidebar {
@@ -240,5 +348,41 @@ body {
     .navbar {
         left: 0;
         padding: 0 1rem;
+    }
+    .file-list-container {
+        padding: 1rem;
+    }
+    
+    .file-list-container .text-truncate {
+        max-width: 150px;
+    }
+    
+    .file-list-container th,
+    .file-list-container td {
+        padding: 0.5rem;
+    }
+    
+    .file-list-container .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .hash-container {
+        max-width: 100px;
+    }
+    
+    @keyframes slideText {
+        0% {
+            transform: translateX(0);
+        }
+        10% {
+            transform: translateX(0);
+        }
+        90% {
+            transform: translateX(calc(-100% + 100px));
+        }
+        100% {
+            transform: translateX(calc(-100% + 100px));
+        }
     }
 } 

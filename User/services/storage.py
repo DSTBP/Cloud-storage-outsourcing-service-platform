@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from loguru import logger
 
 class StorageService:
-    def __init__(self, base_path: str = "storage"):
+    def __init__(self, base_path: str = ""):
         """
         初始化存储服务
         :param base_path: 存储目录
@@ -103,9 +103,6 @@ class StorageService:
 
         # 拼接完整路径
         file_path = os.path.join(save_dir, file_name)
-        print(save_dir)
-        print(file_bytes)
-        print(file_name)
         # 写入文件
         with open(file_path, 'wb') as f:
             f.write(file_bytes)

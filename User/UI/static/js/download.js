@@ -51,7 +51,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('searchInput').addEventListener('input', debouncedFilter);
     document.getElementById('fileTypeFilter').addEventListener('change', filterFiles);
     document.getElementById('sortFilter').addEventListener('change', filterFiles);
-    document.getElementById('dateFilter').addEventListener('change', filterFiles);
+    
+    // 日期选择器处理
+    const dateFilter = document.getElementById('dateFilter');
+    const dateDisplay = document.getElementById('dateDisplay');
+    
+    // 设置日期选择器的最大值为今天
+    dateFilter.max = getTodayString();
+    
+    dateFilter.addEventListener('change', (e) => {
+        const selectedDate = e.target.value;
+        if (selectedDate) {
+            const date = new Date(selectedDate);
+            dateDisplay.textContent = `${date.getFullYear()}年${String(date.getMonth() + 1).padStart(2, '0')}月${String(date.getDate()).padStart(2, '0')}日`;
+        } else {
+            dateDisplay.textContent = '所有日期';
+        }
+        filterFiles();
+    });
+    
+    // 初始化日期显示
+    dateDisplay.textContent = '所有日期';
 });
 
 // 创建并显示提示框
@@ -126,15 +146,16 @@ async function loadFileList() {
             throw new Error('获取文件列表失败');
         }
         const result = await response.json();
-        
-        // 检查返回的数据结构
-        if (!result.data || !result.data.files_info) {
-            throw new Error('返回的数据格式不正确');
-        }
 
-        // 缓存文件数据
-        fileDataCache = result.data.files_info;
-        filteredDataCache = result.data.files_info;
+        // 检查返回的数据结构
+        if (!result.data) {
+            fileDataCache = []
+            filteredDataCache = []
+        } else {
+            // 缓存文件数据
+            fileDataCache = result.data.files_info;
+            filteredDataCache = result.data.files_info;
+        }
 
         // 更新总数显示
         document.getElementById('totalItems').textContent = fileDataCache.length;
@@ -192,7 +213,7 @@ function renderFileList(files) {
                     </span>
                 </div>
             </td>
-            <td>${getFileTypeName(file.file_name)}</td>
+            <td>${unifiedFileType(file.file_name)}</td>
             <td>${formatFileSize(file.file_size)}</td>
             <td>${file.upload_user}</td>
             <td>${formatDate(file.upload_time)}</td>
@@ -274,13 +295,32 @@ function formatFileSize(hexStr) {
 // 格式化日期
 function formatDate(timestamp) {
     const date = new Date(Number(timestamp));
-    return date.toLocaleString('zh-CN', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hour = String(date.getHours()).padStart(2, '0');
+    const minute = String(date.getMinutes()).padStart(2, '0');
+    
+    return `${year}年${month}月${day}日 ${hour}:${minute}`;
+}
+
+// 格式化日期（仅年月日）
+function formatDateYMD(timestamp) {
+    const date = new Date(Number(timestamp));
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    
+    return `${year}年${month}月${day}日`;
+}
+
+// 获取今天的日期字符串（用于日期选择器）
+function getTodayString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
 // 获取文件图标
@@ -422,13 +462,23 @@ async function downloadFile(fileId) {
     const systemCenterAddress = localStorage.getItem('systemCenterAddress');
     const systemParams = localStorage.getItem('systemParameters');
     const username = localStorage.getItem('username');
-    const privateKey = localStorage.getItem('privateKey').replace(/<br\s*\/?>/gi, '\n')
+    const rawPrivateKey = localStorage.getItem('privateKey')
     const filePath = localStorage.getItem('filePath');
 
-    if (!systemCenterAddress || !systemParams || !username || !privateKey) {
-        showToast('缺少必要的配置信息', 'error');
+    const missingParams = [];
+    if (!systemCenterAddress) missingParams.push('systemCenterAddress');
+    if (!systemParams) missingParams.push('systemParameters');
+    if (!username) missingParams.push('username');
+    if (!rawPrivateKey) missingParams.push('privateKey');
+    if (!filePath) missingParams.push('filePath');
+
+    if (missingParams.length > 0) {
+        showToast(`缺少必要的配置信息：${missingParams.join(', ')}`, 'error');
         return;
     }
+
+    const privateKey = rawPrivateKey.replace(/<br\s*\/?>/gi, '\n')
+
     // 创建并显示进度弹窗
     const downloadModal = createDownloadModal();    
     try {
@@ -444,10 +494,24 @@ async function downloadFile(fileId) {
         );
         
         showToast('文件下载成功', 'success');
+        downloadModal.hide();
     } catch (error) {
-        showToast('下载失败：' + error.message);
+        showToast('下载失败：' + error.message, 'error');
         downloadModal.hide();
     }
+}
+
+function unifiedFileType(fileName) {
+    const res = getFileTypeName(fileName);
+    const codeFiles = ['Markdown文件', 'JavaScript文件', 'Python文件', 'Java文件', 'C++文件', 'C#文件', 'PHP文件', 'HTML文件', 'CSS文件'];
+    if (codeFiles.includes(res)) {
+        return '代码文件';
+    }
+    const textFiles = ['文本文件', '日志文件'];
+    if (textFiles.includes(res)) {
+        return '文本文件';
+    }
+    return res;
 }
 
 // 综合筛选和排序
@@ -460,31 +524,35 @@ function filterFiles() {
     // 从缓存的数据中筛选
     filteredDataCache = fileDataCache.filter(file => {
         const fileName = file.file_name.toLowerCase();
-        const fileType = getFileTypeName(file.file_name);
-        const uploadDate = formatDate(file.upload_time);
+        const fileType = unifiedFileType(file.file_name);
+        const uploadDate = new Date(Number(file.upload_time));
+        const uploadDateStr = uploadDate.toISOString().split('T')[0]; // 获取YYYY-MM-DD格式
         
         // 文件名搜索
         const matchesSearch = fileName.includes(searchText);
         
         // 类型筛选
-        const matchesType = !selectedType || fileType === selectedType;
+        const matchesType = selectedType === '' || fileType === selectedType;
         
         // 日期筛选
-        const matchesDate = !selectedDate || uploadDate.includes(selectedDate);
+        const matchesDate = !selectedDate || uploadDateStr === selectedDate;
         
         return matchesSearch && matchesType && matchesDate;
     });
     
     // 排序
     filteredDataCache.sort((a, b) => {
-        if (sortBy === 'size') {
-            return hexBlocksToNumber(b.file_size) - hexBlocksToNumber(a.file_size);
-        } else if (sortBy === 'downloads') {
-            return hexBlocksToNumber(b.download_count) - hexBlocksToNumber(a.download_count);
-        } else if (sortBy === 'date') {
-            return Number(b.upload_time) - Number(a.upload_time);
-        } else {
-            return a.file_name.localeCompare(b.file_name);
+        switch (sortBy) {
+            case 'size':
+                return hexBlocksToNumber(b.file_size) - hexBlocksToNumber(a.file_size);
+            case 'downloads':
+                return hexBlocksToNumber(b.download_count) - hexBlocksToNumber(a.download_count);
+            case 'date':
+                return Number(b.upload_time) - Number(a.upload_time);
+            case 'name':
+                return a.file_name.localeCompare(b.file_name);
+            default:
+                return 0;
         }
     });
 
@@ -499,9 +567,13 @@ function filterFiles() {
     // 渲染当前页
     renderCurrentPage();
     
-    // 显示筛选结果
+    // 显示筛选结果数量
+    const totalItems = document.getElementById('totalItems');
     if (filteredDataCache.length === 0) {
+        totalItems.textContent = '0';
         showToast('没有找到匹配的文件');
+    } else {
+        totalItems.textContent = filteredDataCache.length;
     }
 }
 

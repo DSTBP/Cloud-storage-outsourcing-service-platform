@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 case '下载文件':
                     window.location.href = 'download.html';
                     break;
-                case '数据分析':
-                    window.location.href = 'data.html';
-                    break;
                 case '系统设置':
                     window.location.href = 'settings.html';
                     break;
@@ -45,9 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             case 'download.html':
                 if(text === '下载文件') item.classList.add('active');
-                break;
-            case 'data.html':
-                if(text === '数据分析') item.classList.add('active');
                 break;
             case 'settings.html':
                 if(text === '系统设置') item.classList.add('active');

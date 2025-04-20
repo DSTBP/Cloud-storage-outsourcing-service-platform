@@ -166,3 +166,28 @@
         padding: 0.5rem;
     }
 }
+
+#dateFilter {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#dateDisplay {
+    min-width: 120px;
+    background-color: #f8f9fa;
+    border-left: none;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* 日期选择器样式优化 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
