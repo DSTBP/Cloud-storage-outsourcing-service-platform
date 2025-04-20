@@ -393,7 +393,7 @@ class SystemCenter:
         logger.debug(broadcast_results)
 
         # 检查广播结果
-        success_count = sum(1 for result in broadcast_results if result[1].get("error_code") == 200)
+        success_count = sum(1 for value in broadcast_results.values() if value is None)
         if success_count == len(servers):
             return True
         else:

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: DSTBP
  * @Date: 2025-04-16 16:56:03
- * @LastEditTime: 2025-04-20 17:53:48
+ * @LastEditTime: 2025-04-20 19:57:53
  * @LastEditors: DSTBP
  */
 // 获取系统参数
@@ -421,7 +421,17 @@ async function deleteFile(fileId) {
             throw new Error('系统配置缺失');
         }
 
-        const response = await fetch(`${systemCenterAddress}/file/delete?username=${username}&_id=${fileId}`);
+        const response = await fetch(`${systemCenterAddress}/file/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                file_uuid: fileId
+            })
+        });
+
         if (!response.ok) {
             throw new Error('删除文件失败');
         }
@@ -596,7 +606,11 @@ function updateFileTypeChart(files) {
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: chartData.map(item => item.name)
+            data: chartData.map(item => item.name),
+            textStyle: {
+                fontSize: 12,
+                color: '#4D8BFF',
+            }
         },
         series: [
             {
@@ -610,18 +624,26 @@ function updateFileTypeChart(files) {
                     borderWidth: 2
                 },
                 label: {
-                    show: false,
-                    position: 'center'
+                    show: true,
+                    position: 'outside',
+                    formatter: '{b}\n{c} ({d}%)',
+                    textStyle: {
+                        fontSize: 12,
+                        color: '#4D8BFF',
+                    }
+                },
+                labelLine: {
+                    show: true,
+                    length: 20,
+                    length2: 10,
+                    smooth: true
                 },
                 emphasis: {
                     label: {
                         show: true,
-                        fontSize: '18',
+                        fontSize: 14,
                         fontWeight: 'bold'
                     }
-                },
-                labelLine: {
-                    show: false
                 },
                 data: chartData
             }
