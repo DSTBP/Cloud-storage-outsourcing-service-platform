@@ -10,7 +10,7 @@ from business.core import CloudServer
 from business.config import CloudServerConfig
 
 
-def list_subdirectories(base_dir = r"D:\Data\PythonProjects\GraduationDesign\Gamma0.6\CloudServer\business\keys"):
+def list_subdirectories(base_dir = r"D:\Data\PythonProjects\GraduationDesign\Gamma0.6\business\keys"):
     result = []
     # 遍历 base_dir 下的所有子目录
     for subdir in os.listdir(base_dir):
