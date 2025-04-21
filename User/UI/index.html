@@ -12,12 +12,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="static/js/address.js"></script>
     <!-- 加载动画样式 -->
     <link rel="stylesheet" href="static/css/loading.css">
     <!-- 加载动画脚本 -->
     <script src="static/js/loading.js"></script>
 </head>
 <body>
+    <!-- 系统中心地址输入弹窗 -->
+    <div class="modal fade" id="systemAddressModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">系统配置</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="systemAddress" class="form-label">系统中心地址</label>
+                        <input type="text" class="form-control" id="systemAddress" placeholder="例如：192.168.12.3:2411">
+                        <div class="form-text">请输入完整的系统中心地址，包括IP和端口号</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="saveSystemAddress">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 页面内容将在加载完成后显示 -->
     <div id="app" style="display: none;">
         <div id="particles-js" class="background-container"></div>
