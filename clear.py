@@ -25,3 +25,24 @@ def clear_keys_subdirs(root_dir: str):
 
 # 示例用法
 clear_keys_subdirs(r"D:\Data\PythonProjects\GraduationDesign\Beta0.8")
+
+
+import os
+import shutil
+
+def delete_dev_dirs(root_dir):
+    # 要删除的目录名称列表
+    target_dirs = {'.vscode', '.idea', '__pycache__'}
+
+    for dirpath, dirnames, filenames in os.walk(root_dir, topdown=True):
+        # 过滤出目标目录
+        for dirname in list(dirnames):
+            if dirname in target_dirs:
+                full_path = os.path.join(dirpath, dirname)
+                print(f"删除目录: {full_path}")
+                shutil.rmtree(full_path)
+                # 从遍历中移除，避免访问已删除目录
+                dirnames.remove(dirname)
+
+# 用法：传入你要清理的路径
+delete_dev_dirs(r'D:\Data\PythonProjects\GraduationDesign\upload')
