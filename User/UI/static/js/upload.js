@@ -1,14 +1,14 @@
 // 检查登录状态
 function checkLoginStatus() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
-        localStorage.clear();
+        sessionStorage.clear();
         window.location.href = 'auth.html';
         return;
     }
 
     // 显示用户名
-    document.getElementById('username').textContent = localStorage.getItem('username') || '用户';
+    document.getElementById('username').textContent = sessionStorage.getItem('username') || '用户';
 }
 
 // 初始化页面
@@ -183,10 +183,10 @@ document.addEventListener('DOMContentLoaded', function() {
             cancelBtn.style.display = 'inline-block';
             retryBtn.style.display = 'none';
             
-            // 从localStorage获取必要参数
-            const systemCenterUrl = localStorage.getItem('systemCenterAddress');
-            const systemParams = JSON.parse(localStorage.getItem('systemParameters'));
-            const username = localStorage.getItem('username');
+            // 从sessionStorage获取必要参数
+            const systemCenterUrl = sessionStorage.getItem('systemCenterAddress');
+            const systemParams = JSON.parse(sessionStorage.getItem('systemParameters'));
+            const username = sessionStorage.getItem('username');
             
             if (!systemCenterUrl || !systemParams || !username) {
                 throw new Error('缺少必要的系统参数');

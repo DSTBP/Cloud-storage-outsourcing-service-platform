@@ -7,7 +7,7 @@
  */
 // 获取系统参数
 async function getSystemParameters() {
-    const addr = localStorage.getItem('systemCenterAddress');
+    const addr = sessionStorage.getItem('systemCenterAddress');
     if (!addr) return null;
 
     try {
@@ -24,11 +24,11 @@ async function getSystemParameters() {
 
 // 初始化系统参数
 async function initSystemParameters() {
-    const p1 = localStorage.getItem('systemParameters');
+    const p1 = sessionStorage.getItem('systemParameters');
     const params = await getSystemParameters();
     if (params) {
         const system_param = JSON.stringify(params, null, 2)
-        localStorage.setItem('systemParameters', system_param)
+        sessionStorage.setItem('systemParameters', system_param)
     }
 }
 
@@ -39,15 +39,15 @@ async function initializePage() {
         window.pageLoader.show();
         
         // 检查登录状态
-        const userId = localStorage.getItem('userId');
-        const username = localStorage.getItem('username');
+        const userId = sessionStorage.getItem('userId');
+        const username = sessionStorage.getItem('username');
         
         if (!userId || !username) {
             throw new Error('未登录');
         }
 
         // 验证登录状态的有效性（可以添加与服务器的验证）
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
         if (!systemCenterAddress) {
             throw new Error('系统配置缺失');
         }
@@ -72,7 +72,7 @@ async function initializePage() {
 async function initializeData() {
     try {
         // 设置用户信息
-        document.getElementById('username').textContent = localStorage.getItem('username') || '用户';
+        document.getElementById('username').textContent = sessionStorage.getItem('username') || '用户';
     } catch (error) {
         console.error('数据初始化失败:', error);
         throw error;
@@ -81,7 +81,7 @@ async function initializeData() {
 
 // 退出登录
 function logout() {
-    localStorage.removeItem('loginResponse');
+    sessionStorage.removeItem('loginResponse');
     window.location.href = 'html/auth.html';
 }
 
@@ -102,8 +102,8 @@ let pageSize = 20;
 // 加载统计数据
 async function loadStatistics() {
     try {
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
-        const username = localStorage.getItem('username');
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
+        const username = sessionStorage.getItem('username');
         
         if (!systemCenterAddress || !username) {
             throw new Error('系统配置缺失');
@@ -414,8 +414,8 @@ function debounce(func, wait) {
 // 删除文件
 async function deleteFile(fileId) {
     try {
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
-        const username = localStorage.getItem('username');
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
+        const username = sessionStorage.getItem('username');
         
         if (!systemCenterAddress || !username) {
             throw new Error('系统配置缺失');

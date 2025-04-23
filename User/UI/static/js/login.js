@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 设置默认系统中心地址
-    if (!localStorage.getItem('systemCenterAddress')) {
-        localStorage.setItem('systemCenterAddress', 'http://10.24.37.3:8085');
+    if (!sessionStorage.getItem('systemCenterAddress')) {
+        sessionStorage.setItem('systemCenterAddress', 'http://10.24.37.3:8085');
     }
 
     const loginForm = document.getElementById('login');
@@ -168,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
             password: passwordHash
         };
 
-        // 从localStorage获取系统中心地址
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
+        // 从sessionStorage获取系统中心地址
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
 
         // 发送登录请求到后端
         fetch(`${systemCenterAddress}/user/login`, {
@@ -189,20 +189,20 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(async data => {
             if (data.status === 'success') {
-                // 存储信息到 localStorage
+                // 存储信息到 sessionStorage
                 const userId = data.data.user_id;
                 const public_key = data.data.public_key;
                 const avatar = data.data.avatar;
 
                 if (public_key !== null) {
                     const pem_key = await window.pywebview.api.keypair_format_conversion(public_key, "PEM");
-                    localStorage.setItem('publicKey', pem_key.replace(/\n/g,'<br>'));
+                    sessionStorage.setItem('publicKey', pem_key.replace(/\n/g,'<br>'));
                 } else {
-                    localStorage.setItem('publicKey', null);
+                    sessionStorage.setItem('publicKey', null);
                 }
-                localStorage.setItem('userId', userId);
-                localStorage.setItem('username', usernameValue);
-                localStorage.setItem('avatar', avatar);
+                sessionStorage.setItem('userId', userId);
+                sessionStorage.setItem('username', usernameValue);
+                sessionStorage.setItem('avatar', avatar);
 
                 showToast('登录成功！', 'success');
                 // 登录成功后跳转到board页面

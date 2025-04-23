@@ -6,11 +6,12 @@
 import math
 import traceback
 import time
+import socket
 import secrets
 import threading
 import uuid
 import os
-from flask import Flask
+from flask import Flask, request
 from loguru import logger
 from flask_cors import CORS
 from typing import Tuple, Optional, Dict
@@ -37,6 +38,8 @@ class SystemCenter:
         self.__private_key: Optional[int] = None  # SM2 私钥
         self.__public_key: Optional[Tuple[int, int]] = None  # SM2 公钥
         self.__system_params: Optional[SystemParameters] = None  # 缓存系统参数
+        self.__shutdown_event = threading.Event()  # 添加关闭事件
+        self.server_thread = None  # 服务器线程
 
         # 初始化服务实例
         self.cryptoservice = None
@@ -65,20 +68,55 @@ class SystemCenter:
 
     def run_server(self):
         """系统中心实例"""
-        logger.info(
-            f"[SystemCenter (id: {self.__config.id})] 系统中心已启动 (ip: {self.__config.host}, 端口:{self.__config.port})")
+        if self.server_thread and self.server_thread.is_alive():
+            logger.warning("服务器已经在运行中")
+            return
+
+        def run_flask():
+            try:
+                with self.__app.app_context():
+                    self.__app.run(
+                        host='0.0.0.0',      # 监听地址
+                        port=self.__config.port,
+                        threaded=True,
+                        use_reloader=False    # 禁用重载器
+                    )
+            except Exception as e:
+                logger.error(f"服务器运行错误: {str(e)}")
+                self.__shutdown_event.set()
+
+        # 重置关闭事件
+        self.__shutdown_event.clear()
         
         # 使用线程启动系统中心
-        threading.Thread(
-            target=self.__app.run,
-            kwargs={
-                'host': '0.0.0.0',      # 监听地址
-                'port': self.__config.port,
-                'threaded': True,
-                # 'ssl_context': (self.__config.ssl_cert_path, self.__config.ssl_key_path) if self.__config.ssl_cert_path and self.__config.ssl_key_path else None
-            },
-            daemon=True
-        ).start()
+        self.server_thread = threading.Thread(target=run_flask, daemon=True)
+        self.server_thread.start()
+        
+        host_ip = socket.gethostbyname(socket.gethostname())
+        logger.info(f"[SystemCenter (id: {self.__config.id})] 系统中心已启动 (地址:{host_ip}:{self.__config.port})")
+
+    def stop_server(self):
+        """停止系统中心服务"""
+        try:
+            with self.__app.app_context():
+                # 设置关闭事件
+                self.__shutdown_event.set()
+                
+                # 关闭 Flask 服务器
+                if hasattr(self.__app, 'server'):
+                    func = request.environ.get('werkzeug.server.shutdown')
+                    if func is None:
+                        raise RuntimeError('未找到 werkzeug 服务器')
+                    func()
+                
+                # 等待线程结束
+                if self.server_thread and self.server_thread.is_alive():
+                    self.server_thread.join(timeout=5.0)
+                    
+                logger.info("[SystemCenter] 系统中心服务已停止")
+        except Exception as e:
+            logger.error(f"停止服务失败: {str(e)}")
+            raise
 
     def initialize(self, params: dict) -> bool:
         """初始化系统中心服务"""

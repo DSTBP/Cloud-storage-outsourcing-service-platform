@@ -1,14 +1,14 @@
 // 检查登录状态
 function checkLoginStatus() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
-        localStorage.clear();
+        sessionStorage.clear();
         window.location.href = 'auth.html';
         return;
     }
 
     // 显示用户名
-    document.getElementById('username').textContent = localStorage.getItem('username') || '用户';
+    document.getElementById('username').textContent = sessionStorage.getItem('username') || '用户';
 }
 
 // 初始化 AOS 动画
@@ -134,7 +134,7 @@ let pageSize = 20;
 
 // 加载文件列表
 async function loadFileList() {
-    const systemCenterAddress = localStorage.getItem('systemCenterAddress');
+    const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
     if (!systemCenterAddress) {
         showToast('系统中心地址未配置');
         return;
@@ -459,11 +459,11 @@ function updateDownloadProgress(progress, status) {
 
 // 下载文件
 async function downloadFile(fileId) {
-    const systemCenterAddress = localStorage.getItem('systemCenterAddress');
-    const systemParams = localStorage.getItem('systemParameters');
-    const username = localStorage.getItem('username');
-    const rawPrivateKey = localStorage.getItem('privateKey')
-    const filePath = localStorage.getItem('filePath');
+    const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
+    const systemParams = sessionStorage.getItem('systemParameters');
+    const username = sessionStorage.getItem('username');
+    const rawPrivateKey = sessionStorage.getItem('privateKey')
+    const filePath = sessionStorage.getItem('filePath');
 
     const missingParams = [];
     if (!systemCenterAddress) missingParams.push('systemCenterAddress');

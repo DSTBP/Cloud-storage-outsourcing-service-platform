@@ -43,7 +43,7 @@ function clearError() {
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
     // 检查是否已经设置过系统中心地址
-    const savedAddress = localStorage.getItem('systemCenterAddress');
+    const savedAddress = sessionStorage.getItem('systemCenterAddress');
     if (!savedAddress) {
         // 显示弹窗
         const modal = new bootstrap.Modal(document.getElementById('systemAddressModal'));
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // 保存到localStorage
-        localStorage.setItem('systemCenterAddress', 'http://' + address);
+        // 保存到sessionStorage
+        sessionStorage.setItem('systemCenterAddress', 'http://' + address);
         
         // 关闭弹窗
         const modal = bootstrap.Modal.getInstance(document.getElementById('systemAddressModal'));

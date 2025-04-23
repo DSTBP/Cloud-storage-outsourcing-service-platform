@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 设置默认系统中心地址
-    if (!localStorage.getItem('systemCenterAddress')) {
-        localStorage.setItem('systemCenterAddress', 'http://10.24.37.3:8085');
+    if (!sessionStorage.getItem('systemCenterAddress')) {
+        sessionStorage.setItem('systemCenterAddress', 'http://10.24.37.3:8085');
     }
 
     const registerForm = document.getElementById('register');
@@ -188,8 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
             password: passwordHash
         };
 
-        // 从localStorage获取系统中心地址
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
+        // 从sessionStorage获取系统中心地址
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
 
         // 发送注册请求到后端
         fetch(`${systemCenterAddress}/user/register`, {

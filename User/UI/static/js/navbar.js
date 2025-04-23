@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsLink = document.querySelector('.dropdown-menu li:nth-child(2) .dropdown-item');
 
     // 设置用户名
-    const username = localStorage.getItem('username');
+    const username = sessionStorage.getItem('username');
     if (username) {
         usernameSpan.textContent = username;
     }
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // 清除用户相关数据
-            localStorage.removeItem('username');
-            localStorage.removeItem('avatar');
-            localStorage.removeItem('userId');
-            localStorage.removeItem('publicKey');
+            sessionStorage.removeItem('username');
+            sessionStorage.removeItem('avatar');
+            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('publicKey');
             
             // 跳转到登录页面
             window.location.href = 'auth.html';

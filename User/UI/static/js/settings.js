@@ -18,23 +18,23 @@ function initPage() {
 
 // 检查登录状态
 function checkLoginStatus() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
-        localStorage.clear();
+        sessionStorage.clear();
         location.href = 'auth.html';
         return;
     }
     const usernameEl = document.getElementById('username');
     if (usernameEl) {
-        usernameEl.textContent = localStorage.getItem('username') || '用户';
+        usernameEl.textContent = sessionStorage.getItem('username') || '用户';
     }
 }
 
 // 加载配置设置
 function loadConfigSettings() {
-    const addr = localStorage.getItem('systemCenterAddress') || '';
-    const path = localStorage.getItem('filePath') || '';
-    const params = localStorage.getItem('systemParameters') || '{}';
+    const addr = sessionStorage.getItem('systemCenterAddress') || '';
+    const path = sessionStorage.getItem('filePath') || '';
+    const params = sessionStorage.getItem('systemParameters') || '{}';
 
     document.getElementById('systemCenterAddress').value = addr;
     document.getElementById('filePath').value = path;
@@ -48,21 +48,21 @@ function loadConfigSettings() {
 
 // 加载密钥设置
 function loadKeySettings() {
-    const rawPublicKey = localStorage.getItem('publicKey');
-    const rawPrivateKey = localStorage.getItem('privateKey');
+    const rawPublicKey = sessionStorage.getItem('publicKey');
+    const rawPrivateKey = sessionStorage.getItem('privateKey');
     document.getElementById('publicKey').value = (!rawPublicKey || rawPublicKey === 'null') ? '' : rawPublicKey;
     document.getElementById('privateKey').value = (!rawPrivateKey || rawPrivateKey === 'null') ? '' : rawPrivateKey;
 }
 
 // 显示头像
 function loadAvatar() {
-    const avatar = localStorage.getItem('avatar');
+    const avatar = sessionStorage.getItem('avatar');
     document.getElementById('avatarPreview').src = (avatar && avatar !== 'null') ? avatar : './static/images/default-avatar.png';
 }
 
 // 获取系统参数
 async function getSystemParameters() {
-    const addr = localStorage.getItem('systemCenterAddress');
+    const addr = sessionStorage.getItem('systemCenterAddress');
     if (!addr) return null;
 
     try {
@@ -79,7 +79,7 @@ async function getSystemParameters() {
 
 // 初始化系统参数
 async function initSystemParameters() {
-    const p1 = localStorage.getItem('systemParameters');
+    const p1 = sessionStorage.getItem('systemParameters');
     if (p1) {
         document.getElementById('systemParameters').value = p1;
     }
@@ -87,7 +87,7 @@ async function initSystemParameters() {
         const params = await getSystemParameters();
         if (params) {
             const system_param = JSON.stringify(params, null, 2)
-            localStorage.setItem('systemParameters', system_param)
+            sessionStorage.setItem('systemParameters', system_param)
             document.getElementById('systemParameters').value = system_param;
         }
     }
@@ -165,13 +165,13 @@ function bindAllEvents() {
     // 生成密钥对
     $('generateKeys')?.addEventListener('click', async () => {
         try {
-            const systemParams = JSON.parse(localStorage.getItem('systemParameters'));
+            const systemParams = JSON.parse(sessionStorage.getItem('systemParameters'));
             const keypair = await window.pywebview.api.generate_keypair(systemParams);
             
             if (keypair && keypair.private_key && keypair.public_key) {
-                // 保存到localStorage
-                localStorage.setItem('privateKey', keypair.private_key.replace(/\n/g,'<br>'));
-                localStorage.setItem('publicKey', keypair.public_key.replace(/\n/g,'<br>'));
+                // 保存到sessionStorage
+                sessionStorage.setItem('privateKey', keypair.private_key.replace(/\n/g,'<br>'));
+                sessionStorage.setItem('publicKey', keypair.public_key.replace(/\n/g,'<br>'));
                 
                 // 更新UI显示
                 $('privateKey').value = keypair.private_key.replace(/\n/g,'<br>');
@@ -193,8 +193,8 @@ function bindAllEvents() {
         const path = $('filePath').value;
         if (!addr || !path) return showToast('请填写完整设置', 'error');
 
-        localStorage.setItem('systemCenterAddress', addr);
-        localStorage.setItem('filePath', path);
+        sessionStorage.setItem('systemCenterAddress', addr);
+        sessionStorage.setItem('filePath', path);
 
         const params = await getSystemParameters();
         $('systemParameters').value = JSON.stringify(params || {}, null, 2);
@@ -204,7 +204,7 @@ function bindAllEvents() {
     // 地址变更监听
     $('systemCenterAddress')?.addEventListener('change', async (e) => {
         const addr = e.target.value;
-        localStorage.setItem('systemCenterAddress', addr);
+        sessionStorage.setItem('systemCenterAddress', addr);
         const params = await getSystemParameters();
         $('systemParameters').value = JSON.stringify(params || {}, null, 2);
         showToast(params ? '系统参数已刷新' : '获取失败', params ? 'success' : 'warning');
@@ -212,11 +212,11 @@ function bindAllEvents() {
 
     // 密钥保存
     $('saveKeySettings')?.addEventListener('click', () => {
-        const pub = localStorage.getItem('publicKey');
-        const pri = localStorage.getItem('privateKey');
+        const pub = sessionStorage.getItem('publicKey');
+        const pri = sessionStorage.getItem('privateKey');
         if (!pub || !pri) return showToast('请填写公私钥', 'error');
-        localStorage.setItem('publicKey', pub);
-        localStorage.setItem('privateKey', pri);
+        sessionStorage.setItem('publicKey', pub);
+        sessionStorage.setItem('privateKey', pri);
         showToast('密钥设置已保存');
     });
 
@@ -254,7 +254,7 @@ function bindAllEvents() {
             try {
                 const text = await file.text();
                 $('publicKey').value = text.replace(/\n/g,'<br>');
-                localStorage.setItem('publicKey', text.replace(/\n/g,'<br>'));
+                sessionStorage.setItem('publicKey', text.replace(/\n/g,'<br>'));
                 showToast('公钥已加载', 'success');
             } catch (err) {
                 console.error('读取公钥文件失败:', err);
@@ -276,7 +276,7 @@ function bindAllEvents() {
             try {
                 const text = await file.text();
                 $('privateKey').value = text.replace(/\n/g,'<br>');
-                localStorage.setItem('privateKey', text.replace(/\n/g,'<br>'));
+                sessionStorage.setItem('privateKey', text.replace(/\n/g,'<br>'));
                 showToast('私钥已加载', 'success');
             } catch (err) {
                 console.error('读取私钥文件失败:', err);
@@ -372,9 +372,9 @@ function bindAllEvents() {
     // 上传公钥
     $('uploadPublicKey')?.addEventListener('click', async () => {
         const publicKey = $('publicKey').value.replace(/<br\s*\/?>/gi, '\n');
-        const username = localStorage.getItem('username');
-        const userId = localStorage.getItem('userId');
-        const systemCenterAddress = localStorage.getItem('systemCenterAddress');
+        const username = sessionStorage.getItem('username');
+        const userId = sessionStorage.getItem('userId');
+        const systemCenterAddress = sessionStorage.getItem('systemCenterAddress');
 
         if (!publicKey) {
             showToast('没有可上传的公钥', 'error');
@@ -451,10 +451,10 @@ function handleAvatarUpload(e) {
     const reader = new FileReader();
     reader.onload = async function(ev) {
         const base64 = ev.target.result;
-        const userId = localStorage.getItem('userId');
+        const userId = sessionStorage.getItem('userId');
         if (!userId) return showToast('请先登录', 'error');
 
-        const addr = localStorage.getItem('systemCenterAddress');
+        const addr = sessionStorage.getItem('systemCenterAddress');
         try {
             const res = await fetch(`${addr}/user/avatar`, {
                 method: 'POST',
@@ -465,7 +465,7 @@ function handleAvatarUpload(e) {
             const data = await res.json();
             if (data.status === 'success') {
                 document.getElementById('avatarPreview').src = base64;
-                localStorage.setItem('avatar', base64);
+                sessionStorage.setItem('avatar', base64);
                 showToast('头像上传成功');
             } else {
                 showToast(data.error_message || '上传失败', 'error');

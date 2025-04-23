@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     
     // 检查本地存储中的主题设置
-    let currentTheme = localStorage.getItem('theme');
+    let currentTheme = sessionStorage.getItem('theme');
     if (!currentTheme) {
         currentTheme = prefersDarkScheme.matches ? 'dark' : 'light';
     }
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        sessionStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
         applyTheme(newTheme);
     });

@@ -1,16 +1,14 @@
+
 # -*- coding: utf-8 -*-
 # @Time    : 2025/04/20 21:47
 # @Author  : DSTBP
 # @File    : business/core.py
 # @Description : 云服务器核心类
 import os
-# -*- coding: utf-8 -*-
-# @Time    : 2024/11/19 21:47
-# @Author  : DSTBP
-# @File    : business/core/core.py
-# @Description : 云服务器节点类
+import socket
 import threading
 from flask import Flask
+from flask import request
 from loguru import logger
 from business.schema import ServerContext, ServerRegisterRequest, ServerRegisterResponse, SystemParameters
 from utils.network import NetworkAPI
@@ -29,13 +27,18 @@ class CloudServer:
         :param config: 服务器配置
         """
         self.__config = config or CloudServerConfig()
-        self.__private_key: Optional[int] = None              # ECC 私钥
+        self.__private_key: Optional[int] = None                # ECC 私钥
         self.__public_key: Optional[Tuple[int, int]] = None     # ECC 公钥
 
         # 初始化服务实例
         self.cryptoservice = None
         self.storageservice = None
         self.databaseservice = None
+
+        # 初始化网络服务
+        if not self.__config.system_center_url.startswith(("http://", "https://")):
+            self.__config.system_center_url = "http://" + self.__config.system_center_url
+        self.__config.host = socket.gethostbyname(socket.gethostname())
         self.net = NetworkAPI(base_url=self.__config.system_center_url)
 
         # 缓存系统参数
@@ -64,6 +67,15 @@ class CloudServer:
             daemon=True
         ).start()
 
+    def stop_server(self):
+        """停止云服务器"""
+        func = request.environ.get('werkzeug.server.shutdown')
+        if func is None:
+            logger.warning("无法关闭服务器（非Werkzeug环境）")
+            return
+        func()
+        logger.info(f"[Server (id: {self.__config.id})] 云服务器已停止")
+
     def __get_from_SC(self, endpoint: str) -> dict:
         """从系统中心获取数据"""
         return self.net.extract_response_data(self.net.get(endpoint))
@@ -83,6 +95,7 @@ class CloudServer:
         """
         # 获取系统参数
         self.__system_params = SystemParameters(**self.__get_from_SC("system/parameters"))
+        logger.success("获取系统参数成功")
 
         # 初始化加密服务
         self.cryptoservice = CryptoService(
