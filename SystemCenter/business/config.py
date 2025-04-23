@@ -10,7 +10,7 @@ from dataclasses import dataclass
 class SystemCenterConfig:
     """系统中心配置"""
     host: str = '127.0.0.1'                             # 系统中心地址
-    port: int = 8085                                    # 服务端口号
+    port: int = 0                                       # 服务端口号，0表示自动选择可用端口
     mongo_uri: str = "mongodb://localhost:27017/"       # MongoDB 连接 URI
     db_name: str = "SystemBoard"                        # 数据库名称
     files_collection: str = 'files'                     # 文件信息表名称

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: DSTBP
  * @Date: 2025-04-16 16:56:03
- * @LastEditTime: 2025-04-20 19:57:53
+ * @LastEditTime: 2025-04-23 15:35:07
  * @LastEditors: DSTBP
  */
 // 获取系统参数
@@ -421,6 +421,9 @@ async function deleteFile(fileId) {
             throw new Error('系统配置缺失');
         }
 
+        // 显示处理中的提示
+        showToast('正在处理，请不要重复点击', 'info');
+
         const response = await fetch(`${systemCenterAddress}/file/delete`, {
             method: 'POST',
             headers: {
@@ -526,11 +529,32 @@ function showToast(message, type = 'error') {
     toastEl.setAttribute('aria-atomic', 'true');
     
     const toastHeader = document.createElement('div');
-    toastHeader.className = `toast-header ${type === 'error' ? 'bg-danger' : 'bg-success'} text-white`;
+    let headerClass = 'toast-header ';
+    let titleText = '';
+    
+    switch(type) {
+        case 'success':
+            headerClass += 'bg-success text-white';
+            titleText = '成功';
+            break;
+        case 'error':
+            headerClass += 'bg-danger text-white';
+            titleText = '错误';
+            break;
+        case 'info':
+            headerClass += 'bg-info text-white';
+            titleText = '提示';
+            break;
+        default:
+            headerClass += 'bg-danger text-white';
+            titleText = '错误';
+    }
+    
+    toastHeader.className = headerClass;
     
     const title = document.createElement('strong');
     title.className = 'me-auto';
-    title.textContent = type === 'error' ? '错误' : '成功';
+    title.textContent = titleText;
     
     const closeButton = document.createElement('button');
     closeButton.type = 'button';

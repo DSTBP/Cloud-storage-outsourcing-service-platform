@@ -45,11 +45,32 @@ document.addEventListener('DOMContentLoaded', function() {
         toastEl.setAttribute('aria-atomic', 'true');
         
         const toastHeader = document.createElement('div');
-        toastHeader.className = `toast-header ${type === 'error' ? 'bg-danger' : 'bg-success'} text-white`;
+        let headerClass = 'toast-header ';
+        let titleText = '';
+        
+        switch(type) {
+            case 'success':
+                headerClass += 'bg-success text-white';
+                titleText = '成功';
+                break;
+            case 'error':
+                headerClass += 'bg-danger text-white';
+                titleText = '错误';
+                break;
+            case 'info':
+                headerClass += 'bg-info text-white';
+                titleText = '提示';
+                break;
+            default:
+                headerClass += 'bg-danger text-white';
+                titleText = '错误';
+        }
+        
+        toastHeader.className = headerClass;
         
         const title = document.createElement('strong');
         title.className = 'me-auto';
-        title.textContent = type === 'error' ? '错误' : '成功';
+        title.textContent = titleText;
         
         const closeButton = document.createElement('button');
         closeButton.type = 'button';
@@ -191,6 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!systemCenterUrl || !systemParams || !username) {
                 throw new Error('缺少必要的系统参数');
             }
+
+            // 显示处理中的提示
+            showToast('正在上传，请耐心等待', 'info');
             
             // 调用Python API上传文件
             const fileUuid = await window.pywebview.api.upload_file(

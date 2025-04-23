@@ -5,7 +5,6 @@
 # @File    : business/core.py
 # @Description : 云服务器核心类
 import os
-import socket
 import threading
 from flask import Flask
 from flask import request
@@ -38,8 +37,8 @@ class CloudServer:
         # 初始化网络服务
         if not self.__config.system_center_url.startswith(("http://", "https://")):
             self.__config.system_center_url = "http://" + self.__config.system_center_url
-        self.__config.host = socket.gethostbyname(socket.gethostname())
         self.net = NetworkAPI(base_url=self.__config.system_center_url)
+        self.__config.host = self.net.get_local_ip()
 
         # 缓存系统参数
         self.__system_params: Optional[SystemParameters] = None

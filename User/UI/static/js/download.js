@@ -94,11 +94,32 @@ function showToast(message, type = 'error') {
     toastEl.setAttribute('aria-atomic', 'true');
     
     const toastHeader = document.createElement('div');
-    toastHeader.className = `toast-header ${type === 'error' ? 'bg-danger' : 'bg-success'} text-white`;
+    let headerClass = 'toast-header ';
+    let titleText = '';
+    
+    switch(type) {
+        case 'success':
+            headerClass += 'bg-success text-white';
+            titleText = '成功';
+            break;
+        case 'error':
+            headerClass += 'bg-danger text-white';
+            titleText = '错误';
+            break;
+        case 'info':
+            headerClass += 'bg-info text-white';
+            titleText = '提示';
+            break;
+        default:
+            headerClass += 'bg-danger text-white';
+            titleText = '错误';
+    }
+    
+    toastHeader.className = headerClass;
     
     const title = document.createElement('strong');
     title.className = 'me-auto';
-    title.textContent = type === 'error' ? '错误' : '成功';
+    title.textContent = titleText;
     
     const closeButton = document.createElement('button');
     closeButton.type = 'button';

@@ -59,10 +59,10 @@ class SystemCenterGUI:
         
         # 创建输入字段
         # 端口号
-        ttk.Label(input_frame, text="端口号:").grid(row=0, column=0, sticky=tk.W, pady=5)
+        ttk.Label(input_frame, text="端口号 (0: 自动选择):").grid(row=0, column=0, sticky=tk.W, pady=5)
         self.port_entry = ttk.Entry(input_frame)
         self.port_entry.grid(row=0, column=1, sticky=tk.W+tk.E, pady=5, padx=(5,5))
-        self.port_entry.insert(0, str(self.default_config.port))
+        self.port_entry.insert(0, "0")
         
         # 系统参数
         ttk.Label(input_frame, text="系统参数:").grid(row=1, column=0, sticky=tk.W, pady=5)
@@ -218,7 +218,6 @@ class SystemCenterGUI:
                 return
                 
             # 获取配置
-            port = int(self.port_entry.get())
             n = int(self.n_entry.get())
             t = int(self.t_entry.get())
             
@@ -240,7 +239,7 @@ class SystemCenterGUI:
             
             # 创建并启动系统中心
             config = SystemCenterConfig(
-                port=port,
+                port=0,  # 设置为0表示自动选择端口
                 mongo_uri=self.mongo_uri_entry.get(),
                 db_name=self.db_name_entry.get(),
                 files_collection=self.files_collection_entry.get(),
@@ -257,7 +256,7 @@ class SystemCenterGUI:
             self.server_thread.daemon = True
             self.server_thread.start()
             
-            logger.info(f"系统中心服务启动中... (端口:{port})")
+            logger.info("系统中心服务启动中... (端口:自动选择)")
             
             # 更新按钮状态
             self.start_button.config(state=tk.DISABLED)

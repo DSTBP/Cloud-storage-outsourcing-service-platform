@@ -6,7 +6,6 @@
 import math
 import traceback
 import time
-import socket
 import secrets
 import threading
 import uuid
@@ -72,6 +71,11 @@ class SystemCenter:
             logger.warning("服务器已经在运行中")
             return
 
+        # 如果端口为0或未指定，自动查找可用端口
+        if self.__config.port == 0:
+            self.__config.port = self.net.find_available_port()
+            logger.info(f"自动选择端口: {self.__config.port}")
+
         def run_flask():
             try:
                 with self.__app.app_context():
@@ -92,7 +96,7 @@ class SystemCenter:
         self.server_thread = threading.Thread(target=run_flask, daemon=True)
         self.server_thread.start()
         
-        host_ip = socket.gethostbyname(socket.gethostname())
+        host_ip = self.net.get_local_ip()
         logger.info(f"[SystemCenter (id: {self.__config.id})] 系统中心已启动 (地址:{host_ip}:{self.__config.port})")
 
     def stop_server(self):

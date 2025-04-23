@@ -10,6 +10,7 @@ from tkinter import messagebox
 from loguru import logger
 from business.core import CloudServer
 from business.config import CloudServerConfig
+from utils.network import NetworkAPI
 
 def get_resource_path(relative_path):
     """获取资源文件的绝对路径"""
@@ -266,10 +267,17 @@ class CloudServerGUI:
             
             # 创建并启动服务器
             ids = CloudServerGUI.list_subdirectories(storage_path)
+            current_port = base_port
             for i in range(server_count):
+                # 查找可用端口
+                available_port = NetworkAPI.find_available_port(current_port)
+                if available_port == -1:
+                    logger.error(f"无法找到可用端口，请检查端口范围 {current_port}-{current_port + 100}")
+                    return
+                
                 config = CloudServerConfig(
                     storage_path=storage_path,
-                    port=base_port + i,
+                    port=available_port,
                     system_center_url=self.system_center_url.get(),
                     mongo_uri=self.mongo_uri.get(),
                     db_name=self.db_name.get(),
@@ -286,7 +294,10 @@ class CloudServerGUI:
                 self.server_threads.append(thread)
                 thread.start()
                 
-            logger.info(f"云服务器集群启动准备 (端口:{base_port}-{base_port + server_count - 1})")
+                # 更新下一个要检查的端口
+                current_port = available_port + 1
+                
+            logger.info(f"云服务器集群启动准备 (端口范围:{base_port}-{current_port-1})")
             
             # 更新按钮状态
             self.start_button.config(state=tk.DISABLED)

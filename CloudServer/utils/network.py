@@ -9,6 +9,7 @@ from utils.converter import TypeConverter as tc
 from OpenSSL import crypto
 import urllib3
 import os
+import socket
 
 # 错误码定义
 ERROR_MESSAGES = {
@@ -259,6 +260,54 @@ class NetworkAPI:
             f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k))
         with open(cert_file_path, "wb") as f:
             f.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert))
+
+    @staticmethod
+    def is_port_available(port: int) -> bool:
+        """
+        检查端口是否可用
+        :param port: 要检查的端口号
+        :return: 如果端口可用返回True，否则返回False
+        """
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            try:
+                s.bind(('0.0.0.0', port))
+                return True
+            except socket.error:
+                return False
+
+    @staticmethod
+    def find_available_port(start_port: int = 7777, max_attempts: int = 100) -> int:
+        """
+        查找可用的端口
+        :param start_port: 起始端口号
+        :param max_attempts: 最大尝试次数
+        :return: 找到的可用端口号，如果没找到则返回-1
+        """
+        for port in range(start_port, start_port + max_attempts):
+            if NetworkAPI.is_port_available(port):
+                return port
+        return -1
+
+    @staticmethod
+    def get_local_ip():
+        """
+        获取本机IP地址
+        """
+        try:
+            # 创建一个临时socket连接
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(('8.8.8.8', 80))  # 连接到Google的DNS服务器
+            local_ip = s.getsockname()[0]
+            s.close()
+            return local_ip
+        except Exception:
+            # 如果上述方法失败，尝试获取所有网络接口的IP
+            try:
+                hostname = socket.gethostname()
+                local_ip = socket.gethostbyname_ex(hostname)[2][0]
+                return local_ip
+            except Exception:
+                return '127.0.0.1'  # 如果都失败，返回本地回环地址
 
     def __enter__(self):
         return self
