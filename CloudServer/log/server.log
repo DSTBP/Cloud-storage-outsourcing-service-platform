@@ -1,0 +1,348 @@
+2025-04-25 18:53:06.755 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 18:53:06.757 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:53:06.758 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:53:06.758 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:53:06.759 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:53:06.759 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:53:06.759 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:53:06.759 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:53:06.760 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:53:06.760 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:53:06.761 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:53:06.762 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:53:06.769 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:53:06.769 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:53:06.770 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:53:06.770 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:53:06.786 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:53:06.786 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:53:06.788 | SUCCESS  | business.core:initialize:125 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 18:53:06.789 | INFO     | business.core:run_server:57 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 10.24.37.9, 端口:7782)
+2025-04-25 18:53:06.789 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:53:06.789 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:53:06.789 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:53:06.790 | SUCCESS  | business.core:initialize:125 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 18:53:06.793 | SUCCESS  | business.core:initialize:125 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 18:53:06.793 | INFO     | business.core:run_server:57 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 10.24.37.9, 端口:7779)
+2025-04-25 18:53:06.795 | SUCCESS  | business.core:initialize:125 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 18:53:06.795 | INFO     | business.core:run_server:57 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 10.24.37.9, 端口:7778)
+2025-04-25 18:53:06.797 | SUCCESS  | business.core:initialize:125 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 18:53:06.799 | INFO     | business.core:run_server:57 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 10.24.37.9, 端口:7780)
+2025-04-25 18:53:06.801 | INFO     | business.core:run_server:57 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 10.24.37.9, 端口:7781)
+2025-04-25 18:56:53.589 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 18:56:53.593 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:56:53.593 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:56:53.593 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:56:53.596 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:56:53.596 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:56:53.596 | SUCCESS  | business.core:initialize:98 - 获取系统参数成功
+2025-04-25 18:56:53.596 | DEBUG    | business.core:__load_existing_server:156 - {'host': '10.24.37.9', 'port': 7780, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '87DCD11B5C31D7CBB991F283FDDE1C18', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 18:56:53.596 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:56:53.596 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:56:53.596 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:56:53.596 | DEBUG    | business.core:__load_existing_server:156 - {'host': '10.24.37.9', 'port': 7779, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '3DE808E435638F0AACBB74F902B034EF', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 18:56:53.596 | DEBUG    | business.core:__load_existing_server:156 - {'host': '10.24.37.9', 'port': 7778, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '14EE9085FC8C1B92374884155D7D5837', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 18:56:53.597 | DEBUG    | business.core:__load_existing_server:156 - {'host': '10.24.37.9', 'port': 7781, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 18:56:53.597 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:56:53.597 | DEBUG    | business.core:__load_existing_server:156 - {'host': '10.24.37.9', 'port': 7782, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'CF50E0AC2A7879ED73B0781422D4F5CD', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 18:56:53.605 | ERROR    | __main__:run_server:314 - 服务器运行错误: 系统内部未知错误
+2025-04-25 18:56:53.605 | ERROR    | __main__:run_server:314 - 服务器运行错误: 系统内部未知错误
+2025-04-25 18:56:53.606 | ERROR    | __main__:run_server:314 - 服务器运行错误: 系统内部未知错误
+2025-04-25 18:56:53.607 | ERROR    | __main__:run_server:314 - 服务器运行错误: 系统内部未知错误
+2025-04-25 18:56:53.608 | ERROR    | __main__:run_server:314 - 服务器运行错误: 系统内部未知错误
+2025-04-25 18:59:06.889 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 18:59:06.892 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 18:59:06.892 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 18:59:06.893 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 18:59:06.896 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 18:59:06.896 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:59:06.896 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:59:06.896 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:59:06.897 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:59:06.899 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:59:06.899 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:59:06.900 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 18:59:06.900 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:59:06.900 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:59:06.901 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 18:59:06.902 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:59:06.927 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:59:06.927 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:59:06.929 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:59:06.930 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:59:06.932 | SUCCESS  | business.core:initialize:127 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 18:59:06.933 | SUCCESS  | business.core:initialize:127 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 18:59:06.936 | SUCCESS  | business.core:initialize:127 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 18:59:06.939 | SUCCESS  | business.core:initialize:127 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 18:59:06.940 | INFO     | business.core:run_server:59 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 10.24.37.9, 端口:7778)
+2025-04-25 18:59:06.940 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 18:59:06.940 | INFO     | business.core:run_server:59 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 10.24.37.9, 端口:7781)
+2025-04-25 18:59:06.942 | INFO     | business.core:run_server:59 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 10.24.37.9, 端口:7782)
+2025-04-25 18:59:06.942 | INFO     | business.core:run_server:59 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 10.24.37.9, 端口:7780)
+2025-04-25 18:59:06.946 | SUCCESS  | business.core:initialize:127 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 18:59:06.947 | INFO     | business.core:run_server:59 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 10.24.37.9, 端口:7779)
+2025-04-25 19:03:15.249 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 19:03:15.256 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:03:15.256 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:03:15.257 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:03:15.258 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:03:15.259 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:03:15.259 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:03:15.260 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7780, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '87DCD11B5C31D7CBB991F283FDDE1C18', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:03:15.260 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:03:15.261 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7778, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '14EE9085FC8C1B92374884155D7D5837', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:03:15.261 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:03:15.261 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:03:15.261 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7781, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:03:15.261 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7779, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '3DE808E435638F0AACBB74F902B034EF', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:03:15.262 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:03:15.262 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7782, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'CF50E0AC2A7879ED73B0781422D4F5CD', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:03:15.274 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:03:15.274 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:03:15.276 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:03:15.276 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:03:15.278 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:03:15.286 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:03:15.287 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:03:15.288 | SUCCESS  | business.core:initialize:127 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 19:03:15.289 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:03:15.291 | SUCCESS  | business.core:initialize:127 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 19:03:15.291 | INFO     | business.core:run_server:59 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 192.168.194.1, 端口:7781)
+2025-04-25 19:03:15.291 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:03:15.292 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:03:15.292 | INFO     | business.core:run_server:59 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 192.168.194.1, 端口:7782)
+2025-04-25 19:03:15.295 | SUCCESS  | business.core:initialize:127 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 19:03:15.297 | SUCCESS  | business.core:initialize:127 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 19:03:15.297 | SUCCESS  | business.core:initialize:127 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 19:03:15.298 | INFO     | business.core:run_server:59 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 192.168.194.1, 端口:7778)
+2025-04-25 19:03:15.300 | INFO     | business.core:run_server:59 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 192.168.194.1, 端口:7780)
+2025-04-25 19:03:15.301 | INFO     | business.core:run_server:59 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 192.168.194.1, 端口:7779)
+2025-04-25 19:04:49.759 | INFO     | __main__:stop_servers:318 - 服务器集群已停止
+2025-04-25 19:06:31.697 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 19:06:31.699 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:06:31.699 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:06:31.700 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:06:31.700 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:06:31.700 | DEBUG    | business.core:__load_existing_server:159 - {'host': '10.24.37.9', 'port': 7778, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '14EE9085FC8C1B92374884155D7D5837', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:06:31.700 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:06:31.700 | DEBUG    | business.core:__load_existing_server:159 - {'host': '10.24.37.9', 'port': 7779, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '3DE808E435638F0AACBB74F902B034EF', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:06:31.701 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:06:31.701 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:06:31.701 | DEBUG    | business.core:__load_existing_server:159 - {'host': '10.24.37.9', 'port': 7780, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '87DCD11B5C31D7CBB991F283FDDE1C18', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:06:31.703 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:06:31.704 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:06:31.704 | DEBUG    | business.core:__load_existing_server:159 - {'host': '10.24.37.9', 'port': 7781, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:06:31.705 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:06:31.705 | DEBUG    | business.core:__load_existing_server:159 - {'host': '10.24.37.9', 'port': 7782, 'system_center_url': 'http://10.24.37.9:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'CF50E0AC2A7879ED73B0781422D4F5CD', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:06:31.708 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:06:31.709 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:06:31.709 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:06:31.711 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:06:31.719 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:06:31.719 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:06:31.719 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:06:31.719 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:06:31.720 | SUCCESS  | business.core:initialize:127 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 19:06:31.721 | SUCCESS  | business.core:initialize:127 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 19:06:31.721 | INFO     | business.core:run_server:59 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 10.24.37.9, 端口:7779)
+2025-04-25 19:06:31.721 | SUCCESS  | business.core:initialize:127 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 19:06:31.722 | SUCCESS  | business.core:initialize:127 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 19:06:31.722 | INFO     | business.core:run_server:59 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 10.24.37.9, 端口:7778)
+2025-04-25 19:06:31.723 | INFO     | business.core:run_server:59 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 10.24.37.9, 端口:7780)
+2025-04-25 19:06:31.723 | INFO     | business.core:run_server:59 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 10.24.37.9, 端口:7781)
+2025-04-25 19:06:31.729 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:06:31.731 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:06:31.732 | SUCCESS  | business.core:initialize:127 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 19:06:31.733 | INFO     | business.core:run_server:59 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 10.24.37.9, 端口:7782)
+2025-04-25 19:11:35.120 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 19:11:35.122 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:11:35.123 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:11:35.124 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:11:35.125 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:11:35.125 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7778, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '14EE9085FC8C1B92374884155D7D5837', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:11:35.126 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:11:35.126 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7779, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '3DE808E435638F0AACBB74F902B034EF', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:11:35.126 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:11:35.126 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7780, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': '87DCD11B5C31D7CBB991F283FDDE1C18', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:11:35.129 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:11:35.130 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:11:35.131 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:11:35.132 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7781, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:11:35.132 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:11:35.132 | DEBUG    | business.core:__load_existing_server:159 - {'host': '192.168.194.1', 'port': 7782, 'system_center_url': 'http://192.168.194.1:7777', 'mongo_uri': 'mongodb://localhost:27017/', 'db_name': 'Server', 'enc_shares_collection': 'enc_shares', 'status': 'active', 'storage_path': 'C:/Users/r0xanne/Desktop/123/Cloudsever', 'id': 'CF50E0AC2A7879ED73B0781422D4F5CD', 'ssl_key_path': '', 'ssl_cert_path': ''}
+2025-04-25 19:11:35.150 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:11:35.153 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:11:35.158 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:11:35.158 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:11:35.167 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:11:35.171 | SUCCESS  | business.core:initialize:127 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 19:11:35.171 | INFO     | business.core:run_server:59 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 192.168.194.1, 端口:7779)
+2025-04-25 19:11:35.172 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:11:35.172 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:11:35.174 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:11:35.174 | ERROR    | business.core:__load_existing_server:172 - Traceback (most recent call last):
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 163, in __load_existing_server
+    self.__post_to_SC("server/update_info", address.__dict__)
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\business\core.py", line 87, in __post_to_SC
+    return self.net.extract_response_data(self.net.post(endpoint, data=data))
+  File "D:\Data\PythonProjects\GraduationDesign\Gamma0.8\CloudServer\utils\network.py", line 216, in extract_response_data
+    raise ValueError(response['error_message'])
+ValueError: 系统内部未知错误
+
+2025-04-25 19:11:35.177 | SUCCESS  | business.core:initialize:127 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 19:11:35.180 | SUCCESS  | business.core:initialize:127 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 19:11:35.183 | SUCCESS  | business.core:initialize:127 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 19:11:35.184 | INFO     | business.core:run_server:59 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 192.168.194.1, 端口:7782)
+2025-04-25 19:11:35.185 | INFO     | business.core:run_server:59 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 192.168.194.1, 端口:7778)
+2025-04-25 19:11:35.188 | INFO     | business.core:run_server:59 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 192.168.194.1, 端口:7781)
+2025-04-25 19:11:35.192 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:11:35.196 | SUCCESS  | business.core:initialize:127 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 19:11:35.196 | INFO     | business.core:run_server:59 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 192.168.194.1, 端口:7780)
+2025-04-25 19:16:47.620 | INFO     | __main__:start_servers:300 - 云服务器集群启动准备 (端口范围:7777-7782)
+2025-04-25 19:16:47.623 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:16:47.625 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:16:47.625 | INFO     | business.core:__load_existing_server:159 - {'address': 'http://10.24.37.9:7779', 'sid': '3DE808E435638F0AACBB74F902B034EF'}
+2025-04-25 19:16:47.626 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:16:47.626 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:16:47.627 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:16:47.627 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:16:47.628 | INFO     | business.core:__load_existing_server:159 - {'address': 'http://10.24.37.9:7778', 'sid': '14EE9085FC8C1B92374884155D7D5837'}
+2025-04-25 19:16:47.628 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:16:47.629 | INFO     | business.core:__load_existing_server:159 - {'address': 'http://10.24.37.9:7781', 'sid': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065'}
+2025-04-25 19:16:47.629 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:16:47.629 | INFO     | business.core:__load_existing_server:159 - {'address': 'http://10.24.37.9:7780', 'sid': '87DCD11B5C31D7CBB991F283FDDE1C18'}
+2025-04-25 19:16:47.639 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:47.644 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:47.649 | SUCCESS  | business.core:initialize:100 - 获取系统参数成功
+2025-04-25 19:16:47.651 | INFO     | services.storage:load_info_json:121 - 信息文件加载成功
+2025-04-25 19:16:47.651 | INFO     | business.core:__load_existing_server:159 - {'address': 'http://10.24.37.9:7782', 'sid': 'CF50E0AC2A7879ED73B0781422D4F5CD'}
+2025-04-25 19:16:47.652 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:16:47.653 | SUCCESS  | business.core:initialize:127 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 初始化完成
+2025-04-25 19:16:47.654 | INFO     | business.core:run_server:59 - [Server (id: 3DE808E435638F0AACBB74F902B034EF)] 云服务器已启动 (ip: 10.24.37.9, 端口:7779)
+2025-04-25 19:16:47.655 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:16:47.656 | SUCCESS  | business.core:initialize:127 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 初始化完成
+2025-04-25 19:16:47.656 | INFO     | business.core:run_server:59 - [Server (id: ABF8D95BBC8A3BF80A4E3D8CA6DC6065)] 云服务器已启动 (ip: 10.24.37.9, 端口:7781)
+2025-04-25 19:16:47.658 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:47.659 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:47.668 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:16:47.669 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:16:47.671 | SUCCESS  | business.core:initialize:127 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 初始化完成
+2025-04-25 19:16:47.672 | SUCCESS  | business.core:initialize:127 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 初始化完成
+2025-04-25 19:16:47.673 | INFO     | business.core:run_server:59 - [Server (id: 87DCD11B5C31D7CBB991F283FDDE1C18)] 云服务器已启动 (ip: 10.24.37.9, 端口:7780)
+2025-04-25 19:16:47.673 | INFO     | business.core:run_server:59 - [Server (id: 14EE9085FC8C1B92374884155D7D5837)] 云服务器已启动 (ip: 10.24.37.9, 端口:7778)
+2025-04-25 19:16:47.673 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:47.682 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: Server
+2025-04-25 19:16:47.684 | SUCCESS  | business.core:initialize:127 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 初始化完成
+2025-04-25 19:16:47.684 | INFO     | business.core:run_server:59 - [Server (id: CF50E0AC2A7879ED73B0781422D4F5CD)] 云服务器已启动 (ip: 10.24.37.9, 端口:7782)

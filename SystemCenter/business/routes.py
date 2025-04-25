@@ -14,7 +14,7 @@ from business.schema import (
     UserRegisterRequest, UserLoginRequest, UserPublicKeyRequest,
     FileUploadRequest, CenterContext, FileDownloadRequest, UserInfo, FileInfoListResponse, UserRegisterResponse,
     UserLoginResponse, FileUploadResponse, FileDownloadResponse, ServerRegisterResponse, FileDetailResponse,
-    FileDetailRequest, AvatarUploadRequest, FileDeleteRequest, FileListRequest
+    FileDetailRequest, AvatarUploadRequest, FileDeleteRequest, FileListRequest, ServerUpdateRequest
 )
 import time
 from business.schema import UserStatus, UserPermissions
@@ -40,6 +40,7 @@ class SystemCenterRoutes:
 
         # 服务器信息相关路由
         app.route('/server/register', methods=['POST'])(self.server_register)
+        app.route('/server/update_info', methods=['POST'])(self.server_update_info)
 
         # 用户信息相关路由
         app.route('/user/register', methods=['POST'])(self.limiter.limit("3 per minute")(self.user_register))
@@ -93,6 +94,22 @@ class SystemCenterRoutes:
             return self.context.net.create_standard_response(error_code=102)
         except Exception:
             return self.context.net.create_standard_response(error_code=118)
+
+    def server_update_info(self):
+        try:
+            data = request.get_json()
+            logger.info(data)
+            update_data = ServerUpdateRequest(**data)
+            req = self.context.databaseservice.update_document(
+                self.context.servers_collection,
+                {"_id": update_data.sid},
+                {"address": update_data.address}
+            )
+            logger.info(req)
+            return self.context.net.create_standard_response(data=None)
+        except Exception:
+            return self.context.net.create_standard_response(error_code=118)
+
 
     def user_register(self, max_try_times: int = 5) -> Dict:
         """用户注册"""

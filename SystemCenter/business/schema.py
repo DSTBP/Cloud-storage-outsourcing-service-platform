@@ -79,6 +79,10 @@ class ServerRegisterRequest(BaseModel):
     address: str                        # 服务器地址
     public_key: Tuple[int, int]         # 服务器公钥
 
+class ServerUpdateRequest(BaseModel):
+    address: str                        # 服务器地址
+    sid: str                            # 服务器 ID
+
 class FileDetailRequest(BaseModel):
     file_uuid: str                      # 获取文件详情信息请求
 

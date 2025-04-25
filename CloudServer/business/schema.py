@@ -16,6 +16,10 @@ class ServerRegisterRequest(BaseModel):
     address: str                        # 服务器地址
     public_key: Tuple[int, int]         # 服务器公钥
 
+class ServerUpdateRequest(BaseModel):
+    address: str                        # 服务器地址
+    sid: str                            # 服务器 ID
+
 class SigncryptoShareRequest(BaseModel):
     """签密份额模式"""
     server_id: str               # 目标服务器 ID

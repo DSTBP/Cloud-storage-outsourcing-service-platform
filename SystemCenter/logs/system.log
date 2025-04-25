@@ -1,0 +1,74 @@
+2025-04-25 18:52:49.925 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 18:52:49.934 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 18:52:49.944 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 18:52:49.945 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:52:49.952 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 18:52:49.952 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 18:52:49.953 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:10.24.37.9:7777)
+2025-04-25 18:56:36.856 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 18:56:36.864 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 18:56:36.880 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 18:56:36.881 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 18:56:36.889 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 18:56:36.889 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 18:56:36.890 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:10.24.37.9:7777)
+2025-04-25 18:59:28.221 | DEBUG    | business.routes:list_file_info:274 - req: username='vivian'
+2025-04-25 18:59:32.355 | INFO     | services.database:delete_documents:180 - 删除文档1个，清理GridFS文件0个
+2025-04-25 18:59:38.971 | DEBUG    | business.routes:list_file_info:274 - req: username='vivian'
+2025-04-25 19:02:54.026 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:02:54.052 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:02:54.194 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:02:54.195 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:02:54.217 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:02:54.217 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:02:54.219 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:192.168.194.1:7777)
+2025-04-25 19:05:52.222 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:05:52.227 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:05:52.243 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:05:52.244 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:05:52.251 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:05:52.251 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:05:52.252 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:10.24.37.9:7777)
+2025-04-25 19:10:21.199 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:10:21.206 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:10:21.214 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:10:21.215 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:10:21.221 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:10:21.222 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:10:21.222 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:10.24.37.9:7777)
+2025-04-25 19:11:16.692 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:11:16.698 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:11:16.709 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:11:16.710 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:11:16.721 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:11:16.721 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:11:16.722 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:192.168.194.1:7777)
+2025-04-25 19:11:35.146 | INFO     | business.routes:server_update_info:101 - {'address': 'http://192.168.194.1:7779'}
+2025-04-25 19:11:35.150 | INFO     | business.routes:server_update_info:101 - {'address': 'http://192.168.194.1:7781'}
+2025-04-25 19:11:35.153 | INFO     | business.routes:server_update_info:101 - {'address': 'http://192.168.194.1:7782'}
+2025-04-25 19:11:35.155 | INFO     | business.routes:server_update_info:101 - {'address': 'http://192.168.194.1:7778'}
+2025-04-25 19:11:35.166 | INFO     | business.routes:server_update_info:101 - {'address': 'http://192.168.194.1:7780'}
+2025-04-25 19:15:19.791 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:15:19.798 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:15:19.813 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:15:19.814 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:15:19.821 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:15:19.821 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:15:19.821 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:192.168.194.1:7777)
+2025-04-25 19:16:33.918 | INFO     | __main__:start_service:259 - 系统中心服务启动中... (端口:自动选择)
+2025-04-25 19:16:33.925 | SUCCESS  | services.database:_connect:33 - 成功连接数据库及GridFS: SystemBoard
+2025-04-25 19:16:33.945 | SUCCESS  | business.core:_init_system_params:209 - [SC] 系统参数初始化完成
+2025-04-25 19:16:33.946 | INFO     | services.storage:load_keypair:79 - 密钥文件加载成功
+2025-04-25 19:16:33.954 | SUCCESS  | business.core:initialize:151 - [SC] 系统中心初始化完成
+2025-04-25 19:16:33.955 | INFO     | business.core:run_server:77 - 自动选择端口: 7777
+2025-04-25 19:16:33.955 | INFO     | business.core:run_server:100 - [SystemCenter (id: 505343542D804EB1AC0626C9A232BCA5)] 系统中心已启动 (地址:10.24.37.9:7777)
+2025-04-25 19:16:47.631 | INFO     | business.routes:server_update_info:101 - {'address': 'http://10.24.37.9:7779', 'sid': '3DE808E435638F0AACBB74F902B034EF'}
+2025-04-25 19:16:47.634 | INFO     | business.routes:server_update_info:101 - {'address': 'http://10.24.37.9:7778', 'sid': '14EE9085FC8C1B92374884155D7D5837'}
+2025-04-25 19:16:47.635 | INFO     | business.routes:server_update_info:108 - True
+2025-04-25 19:16:47.638 | INFO     | business.routes:server_update_info:101 - {'address': 'http://10.24.37.9:7781', 'sid': 'ABF8D95BBC8A3BF80A4E3D8CA6DC6065'}
+2025-04-25 19:16:47.640 | INFO     | business.routes:server_update_info:108 - True
+2025-04-25 19:16:47.648 | INFO     | business.routes:server_update_info:101 - {'address': 'http://10.24.37.9:7780', 'sid': '87DCD11B5C31D7CBB991F283FDDE1C18'}
+2025-04-25 19:16:47.649 | INFO     | business.routes:server_update_info:108 - True
+2025-04-25 19:16:47.650 | INFO     | business.routes:server_update_info:108 - True
+2025-04-25 19:16:47.659 | INFO     | business.routes:server_update_info:101 - {'address': 'http://10.24.37.9:7782', 'sid': 'CF50E0AC2A7879ED73B0781422D4F5CD'}
+2025-04-25 19:16:47.662 | INFO     | business.routes:server_update_info:108 - True

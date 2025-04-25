@@ -6,10 +6,13 @@
 # @Description : 云服务器核心类
 import os
 import threading
+import traceback
+
 from flask import Flask
 from flask import request
 from loguru import logger
-from business.schema import ServerContext, ServerRegisterRequest, ServerRegisterResponse, SystemParameters
+from business.schema import ServerContext, ServerRegisterRequest, ServerRegisterResponse, SystemParameters, \
+    ServerUpdateRequest
 from utils.network import NetworkAPI
 from typing import Tuple, Optional
 from services.crypto import CryptoService
@@ -125,18 +128,49 @@ class CloudServer:
 
     def __load_existing_server(self):
         """加载已存在的服务器配置"""
-        self.storageservice = StorageService(
-            base_path=f'{self.__config.storage_path}/{self.__config.id}'
-        )
+        try:
+            self.storageservice = StorageService(
+                base_path=f'{self.__config.storage_path}/{self.__config.id}'
+            )
 
-        # 加载服务器信息
-        server_info = self.storageservice.load_info_json()
-        self.__config = CloudServerConfig(**server_info)
+            # 加载本地服务器信息
+            server_info = self.storageservice.load_info_json()
 
-        # 加载密钥对
-        pem_keypair = self.storageservice.load_keypair()
-        keypair = self.cryptoservice.extract_keypair_data(pem_keypair)
-        self.__private_key, self.__public_key = keypair['private_key'], keypair['public_key']
+            # 更新本地信息
+            fields_to_check = ["host", "port", "system_center_url", "storage_path"]
+
+            # 检查是否有字段不一致
+            needs_update = any(
+                server_info.get(field) != getattr(self.__config, field)
+                for field in fields_to_check
+            )
+
+            if needs_update:
+                # 更新字段
+                for field in fields_to_check:
+                    server_info[field] = getattr(self.__config, field)
+
+                # 构建请求体
+                req = ServerUpdateRequest(
+                    address=f'http://{self.__config.host}:{self.__config.port}',
+                    sid=server_info["id"]
+                )
+
+                logger.info(req.__dict__)
+
+                # 保存本地并上传更新
+                self.storageservice.save_info_json(data=server_info, overwrite=True)
+                self.__post_to_SC("server/update_info", req.__dict__)
+
+            self.__config = CloudServerConfig(**server_info)
+
+            # 加载密钥对
+            pem_keypair = self.storageservice.load_keypair()
+            keypair = self.cryptoservice.extract_keypair_data(pem_keypair)
+            self.__private_key, self.__public_key = keypair['private_key'], keypair['public_key']
+        except:
+            logger.error(traceback.format_exc())
+
 
     def __setup_new_server(self):
         """设置新服务器"""
